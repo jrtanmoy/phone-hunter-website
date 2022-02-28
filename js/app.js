@@ -81,7 +81,7 @@ const details = (id) => {
   };
 //  function for setting details
 const displayPhoneDetail = phone => {
-    console.log(phone.others);
+    console.log(phone.mainFeatures.sensors);
     // get the parent div to append child
     const phoneDetails = document.getElementById('phone-details');
     // clear data
@@ -102,7 +102,7 @@ const displayPhoneDetail = phone => {
         <p class="card-text fst-italic">1. ChipSet : ${phone.mainFeatures.chipSet}</p>
         <p class="card-text fst-italic">2. DisplaySize : ${phone.mainFeatures.displaySize}</p>
         <p class="card-text fst-italic">3. Memory : ${phone.mainFeatures.memory}</p>
-        <p class="card-text fst-italic fw-bold">4. Sensors : ${phone.mainFeatures.sensors}</p>
+        <p class="card-text fst-italic fw-bold">4. Sensors : ${phone?.mainFeatures?.sensors ? phone.mainFeatures.sensors : 'No sensor found'}</p>
         <p class="card-text fst-italic">5. Storage : ${phone.mainFeatures.storage}</p>
         <h5>Others :</h5>
         <p class="card-text fst-italic">1. Bluetooth : ${phone?.others?.Bluetooth ? phone.others.Bluetooth : 'No bluetooth system'}</p>
