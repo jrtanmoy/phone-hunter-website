@@ -40,10 +40,11 @@ const displaySearchResult = datas => {
         console.log(phone);
         const div = document.createElement('div');
         div.classList.add('col');
+        /* div.classList.add('justify-content-between'); */
         // <div onclick="loadMealDetail(${meal.idMeal})" class="card h-100">
         div.innerHTML = `
-        <div class="card h-100">
-            <img src="${phone.image}" class="card-img-top" alt="...">
+        <div class="card h-100 w-75 shadow-lg p-3 mb-5 bg-body rounded rounded-3">
+            <img src="${phone.image}" class="card-img-top w-75 mx-auto" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Phone Model: ${phone.phone_name}</h5>
                 <p class="card-text">Brand: ${phone.brand}</p>
