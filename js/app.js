@@ -66,6 +66,7 @@ const details = (id) => {
  
 const displayPhoneDetail = phone => {
     console.log(phone);
+    console.log(phone.releaseDate);
     const phoneDetails = document.getElementById('phone-details');
     const div = document.createElement('div');
     div.classList.add('card');
@@ -75,7 +76,13 @@ const displayPhoneDetail = phone => {
     <img src="${phone.image}" class="card-img-top w-50 mx-auto mt-4" alt="...">
     <div class="card-body">
         <h5 class="card-title">Name: ${phone.name}</h5>
-        <p class="card-text">Release Date: ${phone.releaseDate}</p>
+        <h6 class="card-text">Release Date: ${phone.releaseDate ? phone.releaseDate : 'No release date'}</h6>
+        <h6>MainFeatures :</h6>
+        <p class="card-text fst-italic">1. ChipSet : ${phone.mainFeatures.chipSet}</p>
+        <p class="card-text fst-italic">2. DisplaySize : ${phone.mainFeatures.displaySize}</p>
+        <p class="card-text fst-italic">3. Memory : ${phone.mainFeatures.memory}</p>
+        <p class="card-text fst-italic">4. Sensors : ${phone.mainFeatures.sensors}</p>
+        <p class="card-text fst-italic">5. Storage : ${phone.mainFeatures.storage}</p>
     </div>
     `;
     phoneDetails.appendChild(div);
