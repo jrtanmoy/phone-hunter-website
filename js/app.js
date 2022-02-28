@@ -43,14 +43,40 @@ const displaySearchResult = datas => {
         /* div.classList.add('justify-content-between'); */
         // <div onclick="loadMealDetail(${meal.idMeal})" class="card h-100">
         div.innerHTML = `
-        <div class="card h-100 w-75 shadow-lg p-3 mb-5 bg-body rounded rounded-3">
+        <div class="card h-100 w-75 shadow-lg mx-auto p-3 mb-5 bg-body rounded-3">
             <img src="${phone.image}" class="card-img-top w-75 mx-auto" alt="...">
-            <div class="card-body">
+            <div class="card-body p-0 mb-0">
                 <h5 class="card-title">Phone Model: ${phone.phone_name}</h5>
                 <p class="card-text">Brand: ${phone.brand}</p>
+                <button onclick="details('${phone.slug}')" class="btn btn-primary">Details</button>
             </div>
         </div>
         `;
         searchResult.appendChild(div);
     })
+}
+
+const details = (id) => {
+    // console.log(id);
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => displayPhoneDetail(data.data));
+  };
+ 
+const displayPhoneDetail = phone => {
+    console.log(phone);
+    const phoneDetails = document.getElementById('phone-details');
+    const div = document.createElement('div');
+    div.classList.add('card');
+    div.classList.add('shadow-lg');
+    div.classList.add('rounded-3');
+    div.innerHTML = `
+    <img src="${phone.image}" class="card-img-top w-50 mx-auto mt-4" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Name: ${phone.name}</h5>
+        <p class="card-text">Release Date: ${phone.releaseDate}</p>
+    </div>
+    `;
+    phoneDetails.appendChild(div);
 }
