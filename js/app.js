@@ -1,5 +1,6 @@
 document.getElementById('error-message').style.display = 'none';
 document.getElementById('no-input-error-message').style.display = 'none';
+// document.getElementById('phone-details').style.display = '';
 const searchPhone = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
@@ -20,19 +21,19 @@ const searchPhone = () => {
             .catch(error => displayError(error));
     }
 }
-/* 
+
 const displayError = error => {
-    if (error = []) {
         document.getElementById('error-message').style.display = 'block';
-    }
-} */
+}
 
 const displaySearchResult = datas => {
     // console.log(datas.data[0]);
-    const phones = datas.data;
+    const phones = datas.data.slice(0,20);
     console.log(phones);
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
+    const phoneDetails = document.getElementById('phone-details');
+    phoneDetails.textContent = '';
     if (phones.length == 0) {
         document.getElementById('error-message').style.display = 'block';
     }
@@ -68,6 +69,7 @@ const displayPhoneDetail = phone => {
     console.log(phone);
     console.log(phone.releaseDate);
     const phoneDetails = document.getElementById('phone-details');
+    phoneDetails.textContent = '';
     const div = document.createElement('div');
     div.classList.add('card');
     div.classList.add('shadow-lg');
