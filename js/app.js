@@ -81,6 +81,7 @@ const details = (id) => {
   };
 //  function for setting details
 const displayPhoneDetail = phone => {
+    console.log(phone.others);
     // get the parent div to append child
     const phoneDetails = document.getElementById('phone-details');
     // clear data
@@ -101,8 +102,15 @@ const displayPhoneDetail = phone => {
         <p class="card-text fst-italic">1. ChipSet : ${phone.mainFeatures.chipSet}</p>
         <p class="card-text fst-italic">2. DisplaySize : ${phone.mainFeatures.displaySize}</p>
         <p class="card-text fst-italic">3. Memory : ${phone.mainFeatures.memory}</p>
-        <p class="card-text fst-italic">4. Sensors : ${phone.mainFeatures.sensors}</p>
+        <p class="card-text fst-italic fw-bold">4. Sensors : ${phone.mainFeatures.sensors}</p>
         <p class="card-text fst-italic">5. Storage : ${phone.mainFeatures.storage}</p>
+        <h5>Others :</h5>
+        <p class="card-text fst-italic">1. Bluetooth : ${phone?.others?.Bluetooth ? phone.others.Bluetooth : 'No bluetooth system'}</p>
+        <p class="card-text fst-italic">2. GPS : ${phone?.others?.GPS ? phone.others.GPS : 'No GPS system'}</p>
+        <p class="card-text fst-italic">3. NFC : ${phone?.others?.NFC ? phone.others.NFC : 'No NFC system'}</p>
+        <p class="card-text fst-italic">4. Radio : ${phone?.others?.Radio ? phone.others.Radio : 'No Radio system'}</p>
+        <p class="card-text fst-italic">5. USB : ${phone?.others?.USB ? phone.others.USB : 'No USB system'}</p>
+        <p class="card-text fst-italic">6. WLAN : ${phone?.others?.WLAN ? phone.others.WLAN : 'No WLAN system'}</p>
     </div>
     `;
     // append child
