@@ -27,14 +27,13 @@ const searchPhone = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => displaySearchResult(data))
-            // .catch(error => displayError(error));
+            .catch(error => displayError(error));
     }
 }
-/* 
+
 const displayError = error => {
         document.getElementById('error-message').style.display = 'block';
-        
-} */
+}
 // get the parameter
 const displaySearchResult = datas => {
     // slice data
@@ -81,7 +80,7 @@ const details = (id) => {
   };
 //  function for setting details
 const displayPhoneDetail = phone => {
-    console.log(phone.mainFeatures.sensors);
+    console.log(phone);
     // get the parent div to append child
     const phoneDetails = document.getElementById('phone-details');
     // clear data
@@ -97,6 +96,7 @@ const displayPhoneDetail = phone => {
     <img src="${phone.image}" class="card-img-top w-50 mx-auto mt-4" alt="...">
     <div class="card-body">
         <h5 class="card-title">Name: ${phone.name}</h5>
+        <h5 class="card-text">Brand: ${phone.brand}</h5>
         <h6 class="card-text">Release Date: ${phone.releaseDate ? phone.releaseDate : 'No release date'}</h6>
         <h6>MainFeatures :</h6>
         <p class="card-text fst-italic">1. ChipSet : ${phone.mainFeatures.chipSet}</p>
@@ -104,13 +104,14 @@ const displayPhoneDetail = phone => {
         <p class="card-text fst-italic">3. Memory : ${phone.mainFeatures.memory}</p>
         <p class="card-text fst-italic fw-bold">4. Sensors : ${phone?.mainFeatures?.sensors ? phone.mainFeatures.sensors : 'No sensor found'}</p>
         <p class="card-text fst-italic">5. Storage : ${phone.mainFeatures.storage}</p>
+        <h6 class="card-text">Slug : ${phone.slug}</h6>
         <h5>Others :</h5>
-        <p class="card-text fst-italic">1. Bluetooth : ${phone?.others?.Bluetooth ? phone.others.Bluetooth : 'No bluetooth system'}</p>
-        <p class="card-text fst-italic">2. GPS : ${phone?.others?.GPS ? phone.others.GPS : 'No GPS system'}</p>
-        <p class="card-text fst-italic">3. NFC : ${phone?.others?.NFC ? phone.others.NFC : 'No NFC system'}</p>
-        <p class="card-text fst-italic">4. Radio : ${phone?.others?.Radio ? phone.others.Radio : 'No Radio system'}</p>
-        <p class="card-text fst-italic">5. USB : ${phone?.others?.USB ? phone.others.USB : 'No USB system'}</p>
-        <p class="card-text fst-italic">6. WLAN : ${phone?.others?.WLAN ? phone.others.WLAN : 'No WLAN system'}</p>
+        <p class="card-text fst-italic">1. Bluetooth : ${phone?.others?.Bluetooth ? phone.others.Bluetooth : 'No bluetooth system found'}</p>
+        <p class="card-text fst-italic">2. GPS : ${phone?.others?.GPS ? phone.others.GPS : 'No GPS system found'}</p>
+        <p class="card-text fst-italic">3. NFC : ${phone?.others?.NFC ? phone.others.NFC : 'No NFC system found'}</p>
+        <p class="card-text fst-italic">4. Radio : ${phone?.others?.Radio ? phone.others.Radio : 'No Radio system found'}</p>
+        <p class="card-text fst-italic">5. USB : ${phone?.others?.USB ? phone.others.USB : 'No USB system found'}</p>
+        <p class="card-text fst-italic">6. WLAN : ${phone?.others?.WLAN ? phone.others.WLAN : 'No WLAN system found'}</p>
     </div>
     `;
     // append child
